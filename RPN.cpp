@@ -31,6 +31,7 @@ int main() {
 						count--;
 					}
 					op.push(token);
+					count++;
 				}
 
 				cCount = count;
@@ -45,15 +46,14 @@ int main() {
 				}
 				else {
 					for(int w = 0; w < cCount; w++) {
-						if(op.top() == '*' || op.top() == '/' || op.top() == '^') {
 							rpn[sl] = op.top();
 							op.pop();
 							sl++;
 							count--;
-						}
-						else {
+						
+						if(op.top() != '*' && op.top() != '/' && op.top() != '^') {
 							op.push(token);
-							cout << "/ sat: " << op.top() << endl;;
+							count++;
 							break;
 						}
 					}
@@ -70,14 +70,14 @@ int main() {
 				}
 				else {
 					for(int d =0; d < cCount; d++) {
-						if(op.top() == '^') {
 							rpn[sl] = op.top();
 							op.pop();
 							sl++;
 							count--;
-						}
-						else {
+						
+						if(op.top() != '^') {
 							op.push(token);
+							count++;
 							break;
 						}
 					}
@@ -112,18 +112,18 @@ int main() {
 				break;
 		}
 	}
-	cout << rpn << endl;
-	cout << op.top() << endl;
-	cout << count << endl;
+	cout << "RPN line 1: " << rpn << endl;
+	cout << "Op.top(): " << op.top() << endl;
+	cout << "count: " << count << endl;
 	for(int q = 0; q < cCount; q++) {
 		rpn[sl] = op.top();
 		op.pop();
 		sl++;
 	}
-	rpn.erase(sl,(rpn.length()-1-sl));
-	cout << sl << endl;
-	cout << count << endl;
-	cout << op.top() << endl;
+	rpn.erase(sl,(rpn.length()-sl));
+	cout << "Sl: " << sl << endl;
+	cout << "count: " << count << endl;
+	cout << "op.top(): " << op.top() << endl;
 	cout << "RPN line: "<< rpn << endl;
 
 	return 0;
