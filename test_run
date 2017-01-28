@@ -1,0 +1,146 @@
+#! /bin/bash
+NC='\033[0m'
+Green='\033[0;32m'
+Red='\033[0;31m'
+cd /home/Keef/lab32/calc/
+
+t=3
+tr1=false
+tr2=false
+tr3=false
+tr4=false
+tr5=false
+tr6=false
+tr7=false
+tr8=false
+tr9=false
+tr10=false
+
+#testing basic operations
+echo "Debug Test1:"
+echo "1+2" | ./calc
+if [ $t = $? ]	
+then
+	tr1=true
+fi
+echo "Debug Test2:"
+echo "4-1" | ./calc
+if [ $t = $? ]	
+then
+	tr2=true
+fi
+echo "Debug Test3:"
+echo "2*3/2" | ./calc
+if [ $t = $? ]	
+then
+	tr3=true
+fi
+echo "Debug Test4:"
+echo "6/2" | ./calc
+if [ $t = $? ]	
+then
+	tr4=true
+fi
+echo "Debug Test5: "
+echo "6/2" | ./calc
+echo "3^1" | ./calc
+if [ $t = $? ]	
+then
+	tr5=true
+fi
+
+#testing complecated operations
+echo "Debug Test6: "
+echo "1+2" | ./calc
+if [ $t = $? ]	
+then
+	tr6=true
+fi
+echo "Debug Test7: "
+echo "3/6*2^2+1" | ./calc
+if [ $t = $? ]	
+then
+	tr7=true
+fi
+echo "Debug Test8: "
+echo "3*2/2" | ./calc
+if [ $t = $? ]	
+then
+	tr8=true
+fi
+echo "Debug Test9: "
+echo "9*9*3/9/9" | ./calc
+if [ $t = $? ]	
+then
+	tr9=true
+fi
+echo "Debug Test10:"
+echo "1+2" | ./calc
+if [ $t = $? ]	
+then
+	tr10=true
+fi
+
+#none complecated ifs
+if [ $tr1 = true ]
+then
+	echo -e "Test 1: Addition    ${Green}[success]${NC}"
+else
+	echo -e "Test 1: Addition    ${Red}[faild]${NC}"
+fi
+if [ $tr2 = true ]
+then
+	echo -e "Test 2: Subtraction ${Green}[success]${NC}"
+else
+	echo -e "Test 2: Subtraction ${Red}[faild]${NC}"
+fi
+if [ $tr3 = true ]
+then
+	echo -e "Test 3: Multi       ${Green}[success]${NC}"
+else
+	echo -e "Test 3: Multi       ${Red}[faild]${NC}"
+fi
+if [ $tr4 = true ]
+then
+	echo -e "Test 4: Devi        ${Green}[success]${NC}"
+else
+	echo -e "Test 4: Devi        ${Red}[faild]${NC}"
+fi
+if [ $tr5 = true ]
+then
+	echo -e "Test 5: Power       ${Green}[success]${NC}"
+else
+	echo -e "Test 5: Power       ${Red}[faild]${NC}"
+fi
+
+#complecated ifs
+if [ $tr6 = true ]
+then
+	echo -e "Test 6:  ${Green}[success]${NC}"
+else
+	echo -e "Test 6:  ${Red}[faild]${NC}"
+fi
+if [ $tr7 = true ]
+then
+	echo -e "Test 7:  ${Green}[success]${NC}"
+else
+	echo -e "Test 7:  ${Red}[faild]${NC}"
+fi
+if [ $tr8 = true ]
+then
+	echo -e "Test 8:  ${Green}[success]${NC}"
+else
+	echo -e "Test 8:  ${Red}[faild]${NC}"
+fi
+if [ $tr9 = true ]
+then
+	echo -e "Test 9:  ${Green}[success]${NC}"
+else
+	echo -e "Test 9:  ${Red}[faild]${NC}"
+fi
+if [ $tr10 = true ]
+then
+	echo -e "Test 10: ${Green}[success]${NC}"	
+else
+	echo -e "Test 10: ${Red}[faild]${NC}"
+fi

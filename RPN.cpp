@@ -84,6 +84,7 @@ int main() {
 				}
 				cCount = count;
 				break;
+
 			case '(':
 				op.push(token);
 				count++;
